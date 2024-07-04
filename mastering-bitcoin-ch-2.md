@@ -26,7 +26,7 @@ An invoice is a request for payment. It is a message that includes the amount to
 
 Example of an invoice:
 
-![Invoice QR](../../assets/images/invoice.png)
+![Invoice QR](../../../assets/images/invoice.png)
 
 This invoice encodes the following information:
 
@@ -115,4 +115,4 @@ Transactions are added to the block based on the fees. The miner can choose whic
 
 Every block that is mined contains a reference to the previous block. This creates a chain of blocks that is immutable. This is known as the blockchain.
 
-### **Read chapter 3 Notes**: [Mastering Bitcoin - Chapter 3](/posts/mastering-bitcoin-ch-3)
+### **Read chapter 3 Notes**: [Mastering Bitcoin - Chapter 3](/posts/mastering-bitcoin-ch-03)

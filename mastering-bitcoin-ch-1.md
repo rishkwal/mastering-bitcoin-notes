@@ -2,7 +2,7 @@
 title: Mastering Bitcoin - Chapter 1
 author: Rishabh
 pubDatetime: 2024-07-01T06:30:00Z
-slug: mastering-bitcoin-ch-1
+slug: mastering-bitcoin-ch-01
 featured: false
 draft: false
 tags:
@@ -93,4 +93,4 @@ Transactions in Bitcoin are irreversible. Transactions can be done by sending bi
 
 A transaction is considered confirmed when it is included in a block on the network transactiona journal(blockchain). To be confirmed, a transaction must be included in a block on the blockchain. The number of confirmations is the number of blocks that have been added after the block that includes your transaction.
 
-### **Read chapter 2 Notes**: [Mastering Bitcoin - Chapter 2](/posts/mastering-bitcoin-ch-2)
+### **Read chapter 2 Notes**: [Mastering Bitcoin - Chapter 2](/posts/mastering-bitcoin-ch-02)
