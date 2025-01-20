@@ -4,7 +4,7 @@ author: Rishabh
 pubDatetime: 2024-07-02T12:30:00Z
 slug: mastering-bitcoin-ch-04
 featured: false
-draft: true
+draft: false
 tags:
   - Bitcoin
   - Mastering Bitcoin
@@ -258,4 +258,55 @@ P2PKH and P2SH are only ones using base58check and are now replaced by bech32 ad
 
 ## Bech32 Addresses
 
-One of the advantages of P2SH was that spender didn't need to know the details of the script the receiver used. 
+One of the advantages of P2SH was that spender didn't need to know the details of the script the receiver used. The SegWit upgrade was designed to use this mechanism, allowing users to imeediately begin the benefits of P2SH addresses.
+
+Initially it was decided in BIP142 that SegWit addresses would be encoded in base58check. However, it was later decided to use a new encoding called Bech32. Bech32 uses a 32 character set of lowercase letters and digits, excluding 1, b, i, and o to avoid confusion.
+
+### Bech32m
+
+There were certain problems with Bech32 addresses. The checksum was not strong enough and there were probable collision attacks. Bech32m was introduced to solve these problems. It uses a different generator polynomial and a different set of constants.
+
+A bech32m address consists of:
+
+1. Human-readable part(HRP): The prefix that indicates the network and the type of address.
+2. Separator: The separator is the number 1.
+3. Data part: The data part consists of the witness version and the witness program.
+4. Checksum: The checksum is calculated using the Bech32m generator polynomial.
+
+P2WPKH: The witness program contains a commitment constructed by hashing the public key with SHA256 and then with RIPEMD160.
+
+P2WSH: The witness program contains a commitment constructed by hashing the redeem script with SHA256 only
+
+## Private Key Formats
+
+<table id="private_key_formats">
+<caption>Private key formats</caption>
+<thead>
+<tr>
+<th>Type</th>
+<th>Prefix</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hex</td>
+<td>None</td>
+<td>Raw private key in hexadecimal format</td>
+</tr>
+<tr>
+<td>WIF</td>
+<td>5</td>
+<td>Base58check encoded with version prefix of 128 and 32-bit checksum</td>
+</tr>
+<tr>
+<td>WIF-compressed</td>
+<td>K or L</td>
+<td>Same as WIF with added suffix 0x01 before encoding</td>
+</tr>
+</tbody>
+</table>
+
+## Compressed Private Keys
+
+It is a misnomer. Compressed private keys are one bit longer than uncompressed private keys because it has an extra byte suffix. The suffix indicates that it is from a newer wallet and should only be used to produce compressed public keys.
